@@ -21,7 +21,7 @@ export default function CheckoutButton() {
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ priceId: process.env.NEXT_PRICE_ID, userId: data.user?.id, email: data.user?.email }),
+        body: JSON.stringify({ priceId: process.env.NEXT_PUBLIC_PRICE_ID, userId: data.user?.id, email: data.user?.email }),
       });
     const session = await response.json();
     await stripe?.redirectToCheckout({ sessionId: session.id });
